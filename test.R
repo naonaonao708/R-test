@@ -23,7 +23,7 @@ test_a
 
 sum(test_a)
 mean(test_a)
-# 度数分布
-table(test_a)
+table(test_a) #度数分布
+var(test_a) #不偏分散
+sd(test_a) #標準偏差
 
-var(test_a)
