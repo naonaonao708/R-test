@@ -23,3 +23,7 @@ for(i in 1:10000){
   sample_mean[i] <- mean(sample_test) # 標本平均の計算
 }
 hist(sample_mean)
+
+# そのままヒストグラムと正規分布を重ねると縦軸の値が異なりずれるため、freq=FALSEでヒストグラムの縦軸の単位を揃える
+hist(sample_mean,freq=FALSE)
+curve(dnorm(x,mean=50,sd=sqrt(10)),add=TRUE)
