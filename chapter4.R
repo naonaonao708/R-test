@@ -27,3 +27,21 @@ hist(sample_mean)
 # そのままヒストグラムと正規分布を重ねると縦軸の値が異なりずれるため、freq=FALSEでヒストグラムの縦軸の単位を揃える
 hist(sample_mean,freq=FALSE)
 curve(dnorm(x,mean=50,sd=sqrt(10)),add=TRUE)
+
+# N(50,10^2)の正規母集団からn=20の標本抽出を5000回繰り返す
+test_mean <- numeric(length=5000)
+
+for(i in 1:5000){
+  tes <- rnorm(n=20,mean=50,sd=10)
+  test_mean[i] <- mean(tes)
+}
+
+hist(test_mean,freq=FALSE)
+curve(dnorm(x,mean=50,sd=sqrt(100/20)),add=TRUE)
+
+# 理論的な標本分布についてサンプルサイズをn=1,4,9,16,25と変化させる　N(0,1^2)
+curve(dnorm(x,mean=0,sd=sqrt(1/25)),-3,3)
+curve(dnorm(x,mean=0,sd=sqrt(1/16)),-3,3)
+curve(dnorm(x,mean=0,sd=sqrt(1/9)),-3,3)
+curve(dnorm(x,mean=0,sd=sqrt(1/4)),-3,3)
+curve(dnorm(x,mean=0,sd=sqrt(1/1)),-3,3)
