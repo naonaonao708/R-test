@@ -26,3 +26,44 @@ pnorm(2.828427,lower.tail = FALSE) # 上側確率Prob(z>2.828427)
 2*pnorm(2.82847,lower.tail = FALSE) # 両側検定なので＊２
 # 値が0.004677108と有意水準である0.05よりも小さいので帰無仮説は棄却される
 
+
+# t分布を用いた検定
+
+# 帰無仮説：μ＝12
+
+t_denominator <- mean(df[,'psych_test']) - 12
+t_numerator <- sqrt(var(df[,'psych_test'])/length(df[,'psych_test']))
+t_value <- t_denominator/t_numerator
+
+qt(0.025,19)
+qt(0.025,19,lower.tail = FALSE)
+# t統計量が棄却域に入るため、帰無仮説は棄却
+
+2*pt(2.616648,19,lower.tail = FALSE) # p値を計算
+# p値が有意水準よりも小さいため帰無仮説は棄却される
+
+t.test(df[,'psych_test'],mu=12) # Rでは一行でT.TESTができる
+
+
+# 相関係数の検定（無相関検定）
+df[,'stat_test1']
+df[,'stat_test2']
+
+# 帰無仮説：ρ＝０（母相関は０である）
+
+sample_corr <- cor(df[,'stat_test1'],df[,'stat_test2'])
+t_value_cor <- sample_corr*sqrt(length(df[,'stat_test1'])-2)/sqrt(1-sample_corr^2)
+
+qt(0.025,18)
+qt(0.025,18,lower.tail = FALSE)
+2*pt(4.8057,18,lower.tail = FALSE)
+# 検定統計量が棄却域に入り、p値が有意水準0.05よりも小さいので帰無仮説は棄却される
+
+cor.test(df[,'stat_test1'],df[,'stat_test2']) # Rでの無相関検定
+# ここではピアソンの積率相関係数を使っている
+
+
+# 独立性の検定（カイ二乗検定）
+
+# 帰無仮説：二つの変数は独立である
+
