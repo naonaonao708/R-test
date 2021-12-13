@@ -67,3 +67,14 @@ cor.test(df[,'stat_test1'],df[,'stat_test2']) # Rでの無相関検定
 
 # 帰無仮説：二つの変数は独立である
 
+ex_matrix <- table(df[,'math'],df[,'stat'])
+
+chisq.test(ex_matrix,correct = FALSE)
+# p値が有意水準よりも大きいため、帰無仮説は棄却されない
+
+# クロス統計表の作成
+course_b <- matrix(c(160,120,40,80),2,2)
+rownames(course_b) <- c("文系","理系")
+colnames(course_b) <- c("履修した","履修しない")
+course_b
+chisq.test(course_b,correct = FALSE)
