@@ -78,3 +78,17 @@ rownames(course_b) <- c("文系","理系")
 colnames(course_b) <- c("履修した","履修しない")
 course_b
 chisq.test(course_b,correct = FALSE)
+
+
+# 練習問題
+testa <- c(165,150,170,168,159,170,167,178,155,159,161,162,166,171,155,160,168,172,155,167)
+t.test(testa,mu=170)
+
+pra_time <- c(1,3,10,12,6,3,8,4,1,5)
+pra_score <- c(20,40,100,80,50,50,70,50,10,60)
+cor.test(pra_time,pra_score)
+cor.test(pra_time,pra_score,method = "spearman")
+cor.test(pra_time,pra_score,method = "kendall")
+
+洋食和食 <- c("洋食","和食","和食","洋食","和食","洋食","洋食","和食","洋食","洋食","和食","洋食","和食","洋食","和食","和食","洋食","洋食","和食","和食")
+甘辛 <- c()
