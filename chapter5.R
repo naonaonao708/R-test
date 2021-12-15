@@ -91,4 +91,12 @@ cor.test(pra_time,pra_score,method = "spearman")
 cor.test(pra_time,pra_score,method = "kendall")
 
 洋食和食 <- c("洋食","和食","和食","洋食","和食","洋食","洋食","和食","洋食","洋食","和食","洋食","和食","洋食","和食","和食","洋食","洋食","和食","和食")
-甘辛 <- c()
+甘辛 <- c('甘党','辛党','甘党','甘党','辛党','辛党','辛党','辛党','甘党','甘党','甘党','甘党','辛党','辛党','甘党','辛党','辛党','甘党','辛党','辛党')
+cross_table <- table(洋食和食,甘辛)
+chisq.test(cross_table,correct = FALSE)
+
+national_lung <- c(60,40,30,70,55)
+social <- c(80,25,35,70,50)
+cor.test(national_lung,social)
+cor.test(rep(national_lung,2),rep(social,2))
+# rep関数で同じデータを繰り返すと相関係数は変わらないが、p値が大幅に下がる
