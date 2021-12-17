@@ -31,3 +31,14 @@ qt(0.025,18,lower.tail = FALSE)
 t.test(stat1_m,stat1_f,var.equal = TRUE)
 # var.equal=TRUEのオプションをつけないとt検定ではなくWelchの検定になってしまう
 
+# 得点の変化の母平均は０である
+vari_stat <- df[,'stat_test2'] - df[,'stat_test1']
+t_value <- mean(vari_stat)/(sd(vari_stat)/sqrt(length(vari_stat)))
+t_value
+qt(0.025,19)
+qt(0.025,19,lower.tail = FALSE)
+
+t.test(vari_stat)
+# 対応のあるt検定
+t.test(df[,'stat_test1'],df[,'stat_test2'],paired = TRUE)
+
