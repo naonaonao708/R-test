@@ -42,3 +42,12 @@ t.test(vari_stat)
 # 対応のあるt検定
 t.test(df[,'stat_test1'],df[,'stat_test2'],paired = TRUE)
 
+
+# 練習問題
+stat_like <- df[df$stat=="好き",]$stat_test1
+stat_dislike <- df[df$stat=="嫌い",]$stat_test1
+var.test(stat_like,stat_dislike)
+t.test(stat_like,stat_dislike,var.equal = FALSE)
+
+var.test(df[df$sex=="男", ]$psych_test,df[df$sex=="女", ]$psych_test)
+t.test(df[df$sex=="男", ]$psych_test,df[df$sex=="女", ]$psych_test,var.equal = FALSE)
