@@ -18,3 +18,19 @@ df_method <- factor(df$method)
 df_method
 
 oneway.test(df$stat_test2~df_method,var.equal = TRUE)
+# 一元配置分散分析のみ実行
+
+aov(df$stat_test2~df_method)
+summary(aov(df$stat_test2~df_method))
+# 分散分析表を表示
+
+anova(lm(df$stat_test2~df_method))
+# 複数のモデルの比較など高度な分析に対応
+
+# cbind()：横方向に繋いで行列を作る関数
+all_data <- cbind(stat2_a,stat2_b,stat2_c,stat2_d)
+all_data
+
+# colMeans()：行列の列ごとの平均を求める関数
+colMeans(all_data)
+
