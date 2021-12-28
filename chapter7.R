@@ -34,3 +34,14 @@ all_data
 # colMeans()：行列の列ごとの平均を求める関数
 colMeans(all_data)
 
+all_data - mean(all_data)
+colMeans(all_data) - mean(all_data)
+all_data - colMeans(all_data)
+
+# 全体平方和
+sum((all_data - mean(all_data))^2)
+
+# 群間平方和
+sum(rep((colMeans(all_data) - mean(all_data)),4)^2)
+
+
