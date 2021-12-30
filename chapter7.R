@@ -49,5 +49,9 @@ sum(rep((colMeans(all_data) - mean(all_data)),4)^2)
 
 # 帰無仮説：４群の平均は等しい
 
+
 q <- abs(mean(stat2_a)-mean(stat2_d))/sqrt(8.625/nrow(all_data))
 q
+
+qtukey(0.95,4,16)
+qtukey(0.05,4,16,lower.tail = FALSE)
